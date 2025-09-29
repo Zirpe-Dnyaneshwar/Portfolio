@@ -3,9 +3,445 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dnyaneshwar Zirpe - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styles and Animations */
+        body {
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* White text */
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a dark theme (optional) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4a5568; /* Gray-blue scrollbar */
+            border-radius: 4px;
+        }
+        /* Gradient for Hero Section */
+        .hero-gradient {
+            background: linear-gradient(135deg, #4c51bf, #6b46c1, #4c51bf);
+        }
+        /* Card Hover Effect */
+        .card-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Skill Bar Animation */
+        .skill-bar-fill {
+            transition: width 1s ease-out;
+        }
+        /* Animated Typing Effect for the Name/Title (requires JS) */
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Home Page</h1>
+    <div id="app" class="min-h-screen">
+        <section id="home" class="hero-gradient min-h-screen flex items-center justify-center text-center p-4">
+            <div class="max-w-4xl mx-auto z-10">
+                <p class="text-xl md:text-2xl text-white mb-2 font-light">BCA Graduate • Full Stack Developer</p>
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-extrabold text-white mb-6">
+                    <span id="typing-text" class="typing-effect"></span>
+                </h1>
+                <p class="text-lg md:text-xl text-white/90 mb-8">
+                    Specialized in <span class="font-bold">Django Web Development</span>, <span class="font-bold">Data Science</span>, and <span class="font-bold">Gen AI/ML Solutions</span>
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 mb-10">
+                    <span class="px-4 py-1 bg-white/20 rounded-full text-sm text-white">Python</span>
+                    <span class="px-4 py-1 bg-white/20 rounded-full text-sm text-white">Django</span>
+                    <span class="px-4 py-1 bg-white/20 rounded-full text-sm text-white">Machine Learning</span>
+                    <span class="px-4 py-1 bg-white/20 rounded-full text-sm text-white">Gen AI & LLMs</span>
+                </div>
+                <div class="flex justify-center space-x-4">
+                    <a href="#contact" class="px-8 py-3 text-lg font-semibold text-gray-900 bg-white rounded-lg shadow-xl hover:bg-gray-200 transition duration-300">Contact Me</a>
+                    <a href="Template\Resume.pdf" download class="px-8 py-3 text-lg font-semibold text-white border-2 border-white rounded-lg hover:bg-white hover:text-gray-900 transition duration-300">Download CV</a>
+                </div>
+                <div class="mt-12">
+                    <img src="https://avatars.githubusercontent.com/u/168260900?v=4" alt="Dnyaneshwar Zirpe Profile" class="w-40 h-40 rounded-full mx-auto border-4 border-white object-cover" />
+                </div>
+            </div>
+        </section>  
+
+        <section id="about" class="py-20 px-4 bg-[#1e1e1e]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">About Me</h2>
+                <p class="text-center text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    BCA graduate passionate about creating innovative solutions using cutting-edge technologies.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect hover:border-indigo-500 border-2 border-transparent">
+                        <h3 class="text-2xl font-bold mb-3 flex items-center text-indigo-400">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707l-.707-.707V8a6 6 0 00-6-6zM10 18a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                            Education
+                        </h3>
+                        <p class="text-gray-400">Strong foundation in computer science fundamentals, programming paradigms, and software development methodologies.</p>
+                        <ul class="mt-4 text-gray-300">
+                            <li>• Bachelor of Computer Applications (BCA)</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect hover:border-indigo-500 border-2 border-transparent">
+                        <h3 class="text-2xl font-bold mb-3 flex items-center text-indigo-400">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-6a6 6 0 00-6 6c0 1.25.337 2.457.94 3.498l.06.102.04.072.072.11.086.115.106.128.118.127.13.125.15.114.168.106.195.088.22.067.245.05.27.03.297.016.325.004.354 0h.01c.026 0 .052 0 .078-.001.026-.001.052-.002.078-.004.027-.001.053-.003.079-.006.026-.003.052-.006.077-.01.025-.004.05-.008.075-.013.025-.005.05-.01.074-.016.025-.006.05-.013.074-.02.025-.007.05-.015.074-.024.024-.008.049-.018.073-.028.024-.01.048-.022.071-.034.023-.012.046-.025.068-.039.022-.014.045-.029.066-.045.021-.016.042-.033.061-.051.02-.018.038-.037.056-.057.018-.02.035-.042.05-.065.015-.023.029-.047.042-.072.013-.025.026-.051.036-.079.01-.027.019-.056.028-.086.009-.03.016-.06.023-.092.007-.031.012-.064.017-.098.004-.034.007-.069.009-.105.002-.036.003-.072.003-.109 0-.037 0-.074-.002-.11-.002-.037-.005-.074-.009-.11-.004-.036-.009-.071-.016-.106-.006-.035-.014-.07-.024-.104-.01-.034-.022-.068-.036-.101-.014-.033-.03-.066-.048-.097-.018-.03-.039-.059-.062-.087-.023-.028-.048-.055-.076-.081-.028-.026-.058-.051-.09-.074-.031-.023-.065-.045-.1-.064-.035-.02-.07-.038-.108-.055-.038-.017-.078-.031-.12-.043-.042-.012-.086-.022-.13-.03-.045-.008-.09-.013-.137-.017-.046-.004-.093-.006-.14-.007-.048-.001-.095 0-.142.001-.048.001-.095.004-.143.007-.048.003-.095.008-.142.013-.047.005-.094.012-.14.02-.047.008-.093.018-.138.03-.045.012-.09.026-.134.043-.044.016-.087.035-.128.056-.041.021-.08.045-.118.071-.038.026-.073.055-.106.086-.033.03-.064.063-.092.099-.028.036-.054.075-.077.116-.023.041-.043.085-.06.13-.017.045-.03.091-.04.14-.01.048-.018.098-.024.148-.006.05-.01.102-.013.153-.003.052-.004.104-.004.156z" clip-rule="evenodd"/></svg>
+                            Web Development
+                        </h3>
+                        <p class="text-gray-400">Expert in scalable web applications using Django framework, REST APIs, and modern frontend technologies.</p>
+                        <ul class="mt-4 text-gray-300">
+                            <li>• Python Django Specialist</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect hover:border-indigo-500 border-2 border-transparent">
+                        <h3 class="text-2xl font-bold mb-3 flex items-center text-indigo-400">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM5 9a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h8a1 1 0 100-2H6z"/></svg>
+                            AI & Data Science
+                        </h3>
+                        <p class="text-gray-400">Proficient in machine learning algorithms, generative AI models, and large language model implementations for real-world solutions.</p>
+                        <ul class="mt-4 text-gray-300">
+                            <li>• ML, Gen AI & LLM Expert</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect hover:border-indigo-500 border-2 border-transparent">
+                        <h3 class="text-2xl font-bold mb-3 flex items-center text-indigo-400">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-8V6h2v4h-2zm-1 4a1 1 0 112 0 1 1 0 01-2 0z"/></svg>
+                            Certifications
+                        </h3>
+                        <p class="text-gray-400">Continuous learning through various certifications in Python, Django, Data Science, and Machine Learning technologies.</p>
+                        <ul class="mt-4 text-gray-300">
+                            <li>• Multiple Industry Certificates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 px-4 bg-[#121212]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Technical Skills</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-green-400">Programming Languages</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Python</span><span>95%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full skill-bar-fill" style="width: 95%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>JavaScript</span><span>85%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>SQL</span><span>90%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-yellow-400">Web Development</h3>
+                         <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Django</span><span>90%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Django REST</span><span>90%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>React</span><span>80%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full skill-bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-red-400">Data Science & ML</h3>
+                         <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Pandas/NumPy</span><span>92%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full skill-bar-fill" style="width: 92%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Scikit-learn</span><span>88%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full skill-bar-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>TensorFlow</span><span>85%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-blue-400">AI & Machine Learning</h3>
+                         <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Large Language Models</span><span>90%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Generative AI</span><span>88%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full skill-bar-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>NLP</span><span>85%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-purple-400">Databases</h3>
+                         <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>PostgreSQL</span><span>90%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full skill-bar-fill" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>MySQL</span><span>85%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full skill-bar-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>MongoDB</span><span>80%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full skill-bar-fill" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect">
+                        <h3 class="text-2xl font-bold mb-5 text-indigo-400">Tools & Others</h3>
+                         <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Git/GitHub</span><span>98%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full skill-bar-fill" style="width: 98%;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>Docker</span><span>78%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full skill-bar-fill" style="width: 78%;"></div>
+                                </div>
+                            </div>
+                             <div>
+                                <div class="flex justify-between text-sm mb-1 text-gray-300"><span>AWS/Cloud</span><span>75%</span></div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-indigo-500 h-2 rounded-full skill-bar-fill" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="projects" class="py-20 px-4 bg-[#1e1e1e]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-16 text-white">Featured Projects</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-blue-500">
+                        <h4 class="text-xl font-bold mb-2 text-blue-400">AI-Powered Analytics Dashboard</h4>
+                        <p class="text-sm text-gray-400 mb-4">Django web application with integrated machine learning models for predictive analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Django</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">TensorFlow</span>
+                        </div>
+                        <div class="flex space-x-3 mt-4">
+                            <a href="#" class="text-sm font-semibold text-white bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition">Code</a>
+                            <a href="#" class="text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition">Demo</a>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-green-500">
+                        <h4 class="text-xl font-bold mb-2 text-green-400">LLM-Based Chatbot System</h4>
+                        <p class="text-sm text-gray-400 mb-4">Intelligent conversational AI system using large language models with custom fine-tuning.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Python</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">FastAPI</span>
+                        </div>
+                        <div class="flex space-x-3 mt-4">
+                            <a href="#" class="text-sm font-semibold text-white bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition">Code</a>
+                            <a href="#" class="text-sm font-semibold text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg transition">Demo</a>
+                        </div>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-red-500">
+                        <h4 class="text-xl font-bold mb-2 text-red-400">E-commerce Platform</h4>
+                        <p class="text-sm text-gray-400 mb-4">Full-featured e-commerce web application built with Django, featuring user authentication, payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Django</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Stripe API</span>
+                        </div>
+                        <div class="flex space-x-3 mt-4">
+                            <a href="#" class="text-sm font-semibold text-white bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg transition">Code</a>
+                            <a href="#" class="text-sm font-semibold text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="py-20 px-4 bg-[#121212]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-5 text-white">Certificates & Achievements</h2>
+                <p class="text-center text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    Continuous learning through industry-recognized certifications and professional development.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-indigo-500">
+                        <span class="text-xs font-semibold text-green-400">✅ Completed</span>
+                        <h4 class="text-xl font-bold mt-2 mb-1 text-white">Machine Learning Specialization</h4>
+                        <p class="text-sm text-gray-400 mb-4">Stanford University/Coursera | 2023</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">ML Algorithms</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">TensorFlow</span>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 mt-4 inline-block">View Certificate</a>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-indigo-500">
+                         <span class="text-xs font-semibold text-green-400">✅ Completed</span>
+                        <h4 class="text-xl font-bold mt-2 mb-1 text-white">Python for Data Science</h4>
+                        <p class="text-sm text-gray-400 mb-4">IBM/Coursera | 2024</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Python</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Data Analysis</span>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 mt-4 inline-block">View Certificate</a>
+                    </div>
+                     <div class="p-6 bg-[#2a2a2a] rounded-xl card-effect border-2 border-transparent hover:border-indigo-500">
+                         <span class="text-xs font-semibold text-yellow-400">⏳ In Progress</span>
+                        <h4 class="text-xl font-bold mt-2 mb-1 text-white">Data Science Professional Certificate</h4>
+                        <p class="text-sm text-gray-400 mb-4">IBM | 2024</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Data Science</span>
+                            <span class="text-xs bg-gray-700 text-gray-300 px-2 py-0.5 rounded">Statistics</span>
+                        </div>
+                        <a href="#" class="text-sm font-semibold text-indigo-400 hover:text-indigo-300 mt-4 inline-block">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="py-20 px-4 bg-[#1e1e1e]">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-5xl font-extrabold text-center mb-5 text-white">Let's Connect</h2>
+                 <p class="text-center text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    Ready to collaborate on your next project or discuss opportunities.
+                </p>
+                <div class="grid md:grid-cols-2 gap-12 bg-[#2a2a2a] p-8 rounded-xl shadow-2xl">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-indigo-400">Get in Touch</h3>
+                        <div class="space-y-6 text-lg text-gray-300">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                                <span>dnyaneshwarzirpe02@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74A1 1 0 0118 16.847V17a1 1 0 01-1 1h-2C7.373 18 2 12.627 2 6V4a1 1 0 011-1z"/></svg>
+                                <span>+91 9373015077 || 8767263075</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 mr-3 text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                                <span>Location: Pune</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                             <h4 class="text-2xl font-bold mb-3 text-white">Availability</h4>
+                             <span class="inline-block bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full mb-3">Available for Work</span>
+                             <p class="text-gray-400">Open to full-time opportunities, freelance projects, and consulting work.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-white">Send a Message</h3>
+                        <p class="text-gray-400 mb-6">I'd love to hear about your project or opportunity</p>
+                        <form class="space-y-4">
+                            <input type="text" placeholder="Your Name" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <input type="email" placeholder="Your Email" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <input type="text" placeholder="Subject (Project inquiry, job opportunity, etc.)" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <textarea placeholder="Message (Tell me about your project or what you'd like to discuss...)" rows="5" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                            <button type="submit" class="w-full px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 00.183.323l.128.14.735.631 3.551 2.367a1 1 0 001.077 0l3.551-2.367.735-.631.128-.14a1 1 0 00.183-.323l-7-14z"/></svg>
+                                Send Message
+                            </button>
+                            <p class="text-center text-sm text-gray-500 mt-2">I typically respond within 24 hours.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-6 px-4 bg-[#121212] border-t border-gray-800 text-center">
+            <p class="text-sm text-gray-400">© 2024 Dnyaneshwar Zirpe. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Simple Typing Effect for Hero Title
+        const textToType = "Python Developer";
+        let i = 0;
+        const speed = 100; // Typing speed in milliseconds
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                document.getElementById("typing-text").innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Start the effect when the page loads
+        window.onload = typeWriter;
+
+        // Simple smooth scroll (Optional, as scroll-behavior: smooth is in CSS)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
