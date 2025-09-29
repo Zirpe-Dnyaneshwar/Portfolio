@@ -394,11 +394,12 @@
                     <div>
                         <h3 class="text-3xl font-bold mb-6 text-white">Send a Message</h3>
                         <p class="text-gray-400 mb-6">I'd love to hear about your project or opportunity</p>
-                        <form class="space-y-4">
-                            <input type="text" placeholder="Your Name" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                            <input type="email" placeholder="Your Email" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                            <input type="text" placeholder="Subject (Project inquiry, job opportunity, etc.)" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                            <textarea placeholder="Message (Tell me about your project or what you'd like to discuss...)" rows="5" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></textarea>
+                        <form class="space-y-4" action="" method="POST">
+                            {% csrf_token %}
+                            <input type="text" placeholder="Your Name" name="Name" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <input type="email" placeholder="Your Email" name="Email" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <input type="text" name="Subject" placeholder="Subject (Project inquiry, job opportunity, etc.)" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                            <input name="Message" placeholder="Message (Tell me about your project or what you'd like to discuss...)" rows="5" class="w-full p-3 bg-[#121212] border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" required></input>
                             <button type="submit" class="w-full px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition duration-300 flex items-center justify-center">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 00.183.323l.128.14.735.631 3.551 2.367a1 1 0 001.077 0l3.551-2.367.735-.631.128-.14a1 1 0 00.183-.323l-7-14z"/></svg>
                                 Send Message
