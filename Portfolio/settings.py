@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-k08c$ft95734hex=iaw2hv+43^!jifus$o$+7s8*fx!#!b8h4(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'web-production-898fe.up.railway.app',  
+    '.railway.app',                         
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -39,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Portfolio_app',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
