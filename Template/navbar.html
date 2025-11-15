@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Navbar</title>
+        <style>
+            /* Basic Reset and Variables */
+            :root {
+                --primary-color: #007bff;
+                /* Blue */
+                --text-color: #333;
+                --bg-color: #fff;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: var(--text-color);
+            }
+
+            /* Navbar Styling */
+            .navbar {
+                position: fixed;
+                /* Stays at the top */
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 5%;
+                background-color: var(--bg-color);
+                box-shadow: var(--shadow);
+                z-index: 1000;
+                transition: top 0.3s ease-in-out;
+                /* For the hide-on-scroll effect */
+            }
+
+            /* Hide on scroll class (added by JS) */
+            .navbar.hidden {
+                top: -80px;
+                /* Moves the entire navbar up and out of view */
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+
+            .nav-links a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 1rem;
+                margin-left: 25px;
+                padding: 5px 0;
+                transition: color 0.3s;
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+
+            
+
+            
+
+            /* Mobile Menu Toggle (Hamburger) */
+            .menu-toggle {
+                display: none;
+                /* Hidden by default on desktop */
+                font-size: 2rem;
+                cursor: pointer;
+                color: var(--text-color);
+            }
+
+            /* ------------------- Media Query for Mobile ------------------- */
+            @media (max-width: 768px) {
+                .nav-links {
+                    /* Mobile menu setup */
+                    position: absolute;
+                    top: 100%;
+                    /* Below the navbar */
+                    left: 0;
+                    width: 100%;
+                    background-color: var(--bg-color);
+                    box-shadow: var(--shadow);
+                    flex-direction: column;
+                    /* Stack links vertically */
+                    align-items: center;
+                    /* Hide the menu by default */
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: max-height 0.3s ease-in-out;
+                }
+
+                /* Class to show the menu (added by JS) */
+                .nav-links.active {
+                    max-height: 300px;
+                    /* Enough space to show all links */
+                    padding-bottom: 10px;
+                }
+
+                .nav-links a {
+                    margin: 10px 0;
+                    display: block;
+                    /* Full width links */
+                }
+
+                .menu-toggle {
+                    display: block;
+                    /* Show hamburger on mobile */
+                }
+
+                .navbar {
+                    padding: 10px 5%;
+                    /* Adjust padding for mobile */
+                }
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.getElementById('menuToggle');
+                const mainNavbar = document.getElementById('mainNavbar');
+                let lastScrollY = 0; // Variable to store the last scroll position
+
+                // ---------------- Mobile Menu Toggle ----------------
+                menuToggle.addEventListener('click', () => {
+                    // Toggles the 'active' class on the navigation links
+                    // The CSS handles showing/hiding based on this class
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close the menu when a link is clicked (mobile experience)
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Check if the mobile menu is open (has the 'active' class)
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                        }
+                    });
+                });
+
+
+                // ---------------- Hide on Scroll Down, Show on Scroll Up ----------------
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+
+                    // Condition 1: If scrolling down AND scroll position is past the initial header
+                    if (currentScrollY > lastScrollY && currentScrollY > 70) {
+                        // Add 'hidden' class to hide the navbar
+                        mainNavbar.classList.add('hidden');
+                    }
+                    // Condition 2: If scrolling up
+                    else {
+                        // Remove 'hidden' class to show the navbar
+                        mainNavbar.classList.remove('hidden');
+                    }
+
+                    // Update the last scroll position
+                    lastScrollY = currentScrollY;
+                });
+
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <header class="navbar" id="mainNavbar">
+            <a href="#home" class="logo">My Portfolio</a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="menu-toggle" id="menuToggle">
+                &#9776;
+            </div>
+        </header>
+
+       
+
+      
+    </body>
+
+    </html>
+</body>
+
+</html>
